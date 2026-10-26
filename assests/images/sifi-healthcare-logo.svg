@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 390" role="img" aria-labelledby="title desc">
+  <title id="title">SIFI Healthcare</title>
+  <desc id="desc">SIFI Healthcare, Caring for Every Life</desc>
+  <path fill="#1165c9" d="M210 17C95 17 20 103 20 210s77 171 190 171h98l-39-48h-57c-82 0-136-46-136-123 0-78 54-141 137-141 47 0 85 17 119 51l40-39C333 38 278 17 210 17Z"/>
+  <path fill="#13b5b1" d="M118 116c22 31 39 48 59 56 26 11 43 2 56-10-7 27-1 51 14 76 17 27 35 50 57 80-57 3-104-9-138-40-43-39-60-91-48-162Z"/>
+  <circle cx="218" cy="119" r="29" fill="#13b5b1"/>
+  <path fill="#10a52b" d="m232 285 31 34 113-163-49 6-76 89-19-22Z"/>
+  <path fill="#f20d18" d="M381 142h23v-22a14 14 0 0 1 14-14h20a14 14 0 0 1 14 14v22h23a14 14 0 0 1 14 14v20a14 14 0 0 1-14 14h-23v22a14 14 0 0 1-14 14h-20a14 14 0 0 1-14-14v-22h-23a14 14 0 0 1-14-14v-20a14 14 0 0 1 14-14Z"/>
+  <path fill="#ef4d78" d="M403 262a22 22 0 1 1 44 0 22 22 0 0 1-44 0Zm5 29h34v75h-34z"/>
+  <path fill="#1165c9" d="M443 293 481 331l-38 38v-29l9-9-9-9Z"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="800"><text x="490" y="195" font-size="168" letter-spacing="-9" fill="#1165c9">SIFI</text><text x="490" y="273" font-size="76" letter-spacing="-3" fill="#078e91">Healthcare</text></g>
+  <text x="490" y="325" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="600" letter-spacing=".2" fill="#101010">Caring for Every Life...</text>
+</svg>
