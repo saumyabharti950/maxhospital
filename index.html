@@ -290,57 +290,237 @@
         </div>
       </section>
 
-      <section class="quick-search-wrap" aria-label="Find care">
-        <div class="container">
-          <div class="quick-search">
-            <div class="search-intro">
-              <div class="search-icon">
-                <i class="bi bi-calendar2-heart"></i>
-              </div>
-              <div>
-                <strong>Schedule your appointment</strong
-                ><span>Choose a department to get started</span>
-              </div>
-            </div>
-            <div class="finder-fields">
-              <div class="finder-field">
-                <label for="careSearch">Doctor or speciality</label>
-                <div class="search-input">
-                  <i class="bi bi-search"></i
-                  ><input
-                    id="careSearch"
-                    type="search"
-                    list="departmentOptions"
-                    placeholder="Search specialities"
-                    aria-label="Search specialities"
-                  /><datalist id="departmentOptions">
-                    <option value="General Medicine"></option>
-                    <option value="Gynaecology & Obstetrics"></option>
-                    <option value="Orthopaedics"></option>
-                    <option value="Diabetes Care"></option>
-                    <option value="Eye Care"></option>
-                    <option value="Neurology"></option>
-                    <option value="Gastroenterology"></option>
-                  </datalist>
-                </div>
-              </div>
-              <div class="finder-field location-field">
-                <label>Hospital location</label>
-                <div class="location-value">
-                  <i class="bi bi-geo-alt"></i><span>Kanke, Ranchi</span
-                  ><i class="bi bi-chevron-down"></i>
-                </div>
-              </div>
-            </div>
-            <a
-              class="btn btn-primary rounded-pill px-4"
-              href="#appointment"
-              id="finderButton"
-              >Request appointment <i class="bi bi-arrow-right ms-2"></i
-            ></a>
-          </div>
+   <section class="appointment-section">
+
+    <!-- Left Decorative Illustration -->
+    <div class="side-art side-art-left" aria-hidden="true">
+        <div class="art-paper"></div>
+        <div class="waiting-area"></div>
+
+        <svg viewBox="0 0 300 280"
+             style="position:absolute;bottom:0;left:12px;width:275px;height:280px"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Sitting patient -->
+            <ellipse cx="77" cy="268" rx="43" ry="7" fill="#b9cadc"/>
+
+            <!-- Legs -->
+            <path d="M54 177 Q47 218 62 240 L78 265 L95 264 L81 232 L94 190"
+                  fill="#303638"/>
+            <path d="M80 229 L97 249 L113 265 L129 264 L111 238 L101 211"
+                  fill="#252d32"/>
+            <path d="M65 260 L83 260 L89 269 L54 269 Q49 264 65 260"
+                  fill="#182b39"/>
+            <path d="M109 260 L127 259 L136 269 L102 269 Q100 265 109 260"
+                  fill="#172b39"/>
+
+            <!-- Body -->
+            <path d="M52 113 Q72 102 91 117 L104 156
+                     Q111 172 98 193 L54 194
+                     Q42 170 43 144 Z"
+                  fill="#f8b34f"/>
+
+            <!-- Arm -->
+            <path d="M83 121 Q104 128 119 143
+                     L155 150 Q164 153 165 147
+                     Q160 138 151 140 L118 126
+                     L93 112 Z"
+                  fill="#f5b18b"/>
+
+            <!-- Neck -->
+            <path d="M65 88 L64 111 L81 119 L83 97 Z"
+                  fill="#e9aa87"/>
+
+            <!-- Head -->
+            <ellipse cx="69" cy="73" rx="20" ry="25" fill="#efb18e"/>
+            <path d="M49 73 Q44 45 65 45
+                     Q86 43 89 65 L85 81
+                     L78 61 L62 60 L53 76 Z"
+                  fill="#151a1c"/>
+            <path d="M50 70 Q46 88 59 95
+                     L56 80 L62 62 Z"
+                  fill="#171c20"/>
+
+            <!-- Face mask -->
+            <path d="M62 74 L82 73 L80 87 L65 88 Z"
+                  fill="#dcebf4"/>
+            <path d="M62 75 L57 73 M80 76 L86 73"
+                  stroke="#dcebf4" stroke-width="1.5"/>
+
+            <!-- Female companion -->
+            <ellipse cx="187" cy="266" rx="29" ry="6" fill="#b9cadc"/>
+
+            <!-- Legs -->
+            <path d="M170 188 L174 239 L165 265 L180 266
+                     L193 238 L198 190"
+                  fill="#f5d4b2"/>
+            <path d="M190 189 L199 239 L208 264 L222 264
+                     L211 232 L212 187"
+                  fill="#f7d7b7"/>
+
+            <!-- Dress -->
+            <path d="M168 110 Q186 103 204 114
+                     L215 165 L204 211
+                     Q188 220 168 211
+                     L158 163 Z"
+                  fill="#f8d7b5"/>
+
+            <!-- Arm -->
+            <path d="M172 122 Q158 134 149 145
+                     L136 148 Q129 151 134 157
+                     Q144 162 153 153
+                     L179 141"
+                  fill="#efb08c"/>
+
+            <!-- Hair -->
+            <path d="M166 88 Q157 58 182 56
+                     Q208 57 208 83
+                     L201 117 L192 100
+                     L189 74 L174 78 L165 106 Z"
+                  fill="#26272c"/>
+
+            <!-- Head -->
+            <ellipse cx="185" cy="83" rx="18" ry="23" fill="#efb28f"/>
+
+            <!-- Hair details -->
+            <path d="M168 79 Q173 51 195 66
+                     L204 89 L197 75 L184 70
+                     L174 81 Z"
+                  fill="#25262b"/>
+
+            <!-- Mask -->
+            <path d="M176 84 L195 83 L193 97 L180 98 Z"
+                  fill="#dbeaf4"/>
+            <path d="M176 85 L171 82 M194 85 L200 81"
+                  stroke="#dbeaf4" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <!-- Right Decorative Illustration -->
+    <div class="side-art side-art-right" aria-hidden="true">
+        <div class="doctor-desk"></div>
+        <div class="desk-cross">+</div>
+
+        <div class="doctor-figure">
+            <div class="doctor-hair"></div>
+            <div class="doctor-face"></div>
+            <div class="doctor-neck"></div>
+            <div class="doctor-shirt"></div>
+            <div class="doctor-coat"></div>
+            <div class="doctor-badge"></div>
         </div>
-      </section>
+
+        <svg viewBox="0 0 70 50"
+             style="position:absolute;bottom:217px;left:105px;width:52px;height:40px"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4 H61 L56 35 H3 Z"
+                  fill="#f8fbff" stroke="#7ea9df" stroke-width="1.5"/>
+            <path d="M14 11 H55 M12 17 H53 M10 23 H52 M9 29 H50"
+                  stroke="#a7c6ec" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="appointment-container">
+
+        <!-- Heading -->
+        <h1 class="appointment-heading">
+            Schedule Your Appointment Online
+        </h1>
+
+        <!-- Search Form -->
+        <form class="appointment-search"
+              id="appointmentForm"
+              action="#"
+              method="get">
+
+            <div class="search-field">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input
+                    type="search"
+                    name="speciality"
+                    id="speciality"
+                    placeholder="Search for Doctor or Speciality"
+                    aria-label="Search for Doctor or Speciality"
+                    list="specialityOptions"
+                    required
+                >
+                <datalist id="specialityOptions">
+                    <option value="Cardiology">
+                    <option value="Neurology">
+                    <option value="Orthopaedics">
+                    <option value="Paediatrics">
+                    <option value="Dermatology">
+                    <option value="General Medicine">
+                    <option value="Gynaecology">
+                </datalist>
+            </div>
+
+            <div class="search-field location-field">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <select
+                    name="location"
+                    id="location"
+                    aria-label="Select Location"
+                    required
+                >
+                    <option value="" selected disabled>Select Location</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Gurugram">Gurugram</option>
+                    <option value="Faridabad">Faridabad</option>
+                </select>
+            </div>
+
+            <button type="submit" class="appointment-btn">
+                Book an Appointment
+            </button>
+
+        </form>
+
+        <!-- Service Cards -->
+        <div class="services-grid">
+
+            <a href="#international-patients" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-files" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">International Patients</h2>
+                <p class="service-subtitle">Visit International Website</p>
+            </a>
+
+            <a href="#immigration" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-globe2" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">Immigration</h2>
+                <p class="service-subtitle">Visa Medical Appointment</p>
+            </a>
+
+            <a href="#health-checkup" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-person-check" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">Health Checkup</h2>
+            </a>
+
+            <a href="#max-lab" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-droplet-half" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">MAX Lab</h2>
+            </a>
+
+            <a href="#max-at-home" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-house-add" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">MAX@Home</h2>
+            </a>
+
+        </div>
+
+    </div>
+</section>
 
       <section class="section-pad welcome" id="about">
         <div class="container">

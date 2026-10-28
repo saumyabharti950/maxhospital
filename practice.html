@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Your Appointment Online</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #073f79;
+            --primary-dark: #063c72;
+            --background: #eaf2fb;
+            --border: #cbd9e8;
+            --text: #10263d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        .appointment-section {
+            position: relative;
+            width: 100%;
+            min-height: 523px;
+            overflow: hidden;
+            background: var(--background);
+            padding: 31px 0 24px;
+        }
+
+        .appointment-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        /* Heading */
+        .appointment-heading {
+            margin: 0 0 53px;
+            color: var(--primary-dark);
+            font-size: 36px;
+            line-height: 1.35;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.6px;
+        }
+
+        /* Main Search Panel */
+        .appointment-search {
+            width: 100%;
+            min-height: 175px;
+            padding: 35px 44px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid #d1dbe5;
+            border-radius: 14px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.17);
+        }
+
+        .search-field {
+            position: relative;
+            display: flex;
+            flex: 1 1 0;
+            align-items: center;
+            height: 83px;
+            min-width: 0;
+            background: #f7f7f7;
+            border: 1px solid #4779b7;
+            border-radius: 6px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .search-field:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(7, 63, 121, .1);
+        }
+
+        .search-field > i {
+            flex-shrink: 0;
+            padding-left: 18px;
+            color: var(--primary);
+            font-size: 27px;
+        }
+
+        .search-field input,
+        .search-field select {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            padding: 0 15px;
+            border: 0;
+            outline: 0;
+            color: #20252b;
+            background: transparent;
+            font-family: inherit;
+            font-size: 21px;
+            font-weight: 500;
+        }
+
+        .search-field input::placeholder {
+            color: #20252b;
+            opacity: 1;
+        }
+
+        .search-field select {
+            cursor: pointer;
+            appearance: none;
+            padding-right: 35px;
+        }
+
+        .location-field::after {
+            content: "\F282";
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: "bootstrap-icons";
+            font-size: 14px;
+            color: var(--primary);
+            pointer-events: none;
+        }
+
+        /* Appointment Button */
+        .appointment-btn {
+            flex: 0 0 344px;
+            height: 83px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            color: #ffffff;
+            background: var(--primary);
+            font-family: inherit;
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background .25s, transform .25s;
+        }
+
+        .appointment-btn:hover {
+            color: #ffffff;
+            background: #052e59;
+            border-color: #052e59;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 36px;
+        }
+
+        .service-card {
+            min-height: 151px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 7px 13px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            color: var(--primary);
+            text-align: center;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: #7299c4;
+            box-shadow: 0 7px 20px rgba(7, 63, 121, .10);
+            color: var(--primary);
+        }
+
+        .service-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 68px;
+            margin-bottom: 3px;
+        }
+
+        .service-icon i {
+            font-size: 58px;
+            line-height: 1;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        .service-title {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .service-subtitle {
+            margin: 3px 0 0;
+            font-size: 13px;
+            line-height: 1.4;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Decorative Medical Artwork */
+        .side-art {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            width: 305px;
+            height: 390px;
+            pointer-events: none;
+            opacity: .96;
+        }
+
+        .side-art-left {
+            left: 0;
+        }
+
+        .side-art-right {
+            right: 0;
+        }
+
+        .art-paper {
+            position: absolute;
+            top: 10px;
+            left: 22%;
+            width: 114px;
+            height: 82px;
+            padding: 8px;
+            background: #dbeafb;
+            border: 2px solid #d2e2f5;
+            opacity: .75;
+        }
+
+        .art-paper::before {
+            content: "";
+            display: block;
+            width: 32px;
+            height: 28px;
+            float: left;
+            margin-right: 6px;
+            background: #c8ddf6;
+        }
+
+        .art-paper::after {
+            content: "";
+            display: block;
+            height: 40px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #c8ddf6 0 2px,
+                transparent 2px 6px
+            );
+        }
+
+        .waiting-area {
+            position: absolute;
+            bottom: 43px;
+            left: -18px;
+            width: 300px;
+            height: 120px;
+            background: #d1e1ef;
+            border-radius: 12px 30px 0 0;
+        }
+
+        .waiting-area::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            background: #c9dceb;
+            border-radius: 12px 30px 0 0;
+        }
+
+        .waiting-area::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 22px;
+            width: 5px;
+            height: 44px;
+            background: #748ba3;
+            box-shadow: 245px 0 #748ba3;
+        }
+
+        .doctor-desk {
+            position: absolute;
+            right: -38px;
+            bottom: 0;
+            width: 262px;
+            height: 220px;
+            border-radius: 12px 0 0 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                #d0e0eb 0 48px,
+                #e0eaf2 48px 91px
+            );
+        }
+
+        .doctor-desk::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 22px;
+            border-radius: 12px 0 0 0;
+            background: #c2d5e1;
+        }
+
+        .desk-cross {
+            position: absolute;
+            right: 74px;
+            bottom: 57px;
+            font-size: 62px;
+            font-weight: 400;
+            color: #edf5fa;
+        }
+
+        .doctor-figure {
+            position: absolute;
+            right: 30px;
+            bottom: 207px;
+            width: 94px;
+            height: 168px;
+        }
+
+        .doctor-hair {
+            position: absolute;
+            left: 17px;
+            top: 0;
+            width: 57px;
+            height: 80px;
+            border-radius: 48% 48% 35% 35%;
+            background: #171b21;
+            transform: rotate(-5deg);
+        }
+
+        .doctor-face {
+            position: absolute;
+            left: 30px;
+            top: 15px;
+            width: 34px;
+            height: 44px;
+            border-radius: 45% 45% 48% 48%;
+            background: #f6c29d;
+        }
+
+        .doctor-neck {
+            position: absolute;
+            left: 40px;
+            top: 52px;
+            width: 16px;
+            height: 20px;
+            background: #f2b58d;
+        }
+
+        .doctor-coat {
+            position: absolute;
+            left: 6px;
+            top: 64px;
+            width: 79px;
+            height: 100px;
+            clip-path: polygon(22% 0, 42% 0, 51% 13%, 62% 0, 81% 0, 100% 25%, 84% 100%, 13% 100%, 0 24%);
+            background: #ffffff;
+            border: 1px solid #d1dce8;
+        }
+
+        .doctor-shirt {
+            position: absolute;
+            left: 35px;
+            top: 65px;
+            width: 29px;
+            height: 83px;
+            background: #6bc7bd;
+            clip-path: polygon(0 0, 100% 0, 82% 100%, 16% 100%);
+        }
+
+        .doctor-badge {
+            position: absolute;
+            top: 99px;
+            left: 58px;
+            width: 13px;
+            height: 10px;
+            border: 1px solid #7c9bb9;
+            background: #dce9f6;
+        }
+
+        /* Responsive */
+        @media (min-width: 1600px) {
+            .appointment-container {
+                max-width: 1260px;
+            }
+        }
+
+        @media (max-width: 1450px) {
+            .side-art {
+                opacity: .38;
+            }
+
+            .appointment-container {
+                max-width: 1150px;
+            }
+
+            .appointment-btn {
+                flex-basis: 290px;
+                font-size: 21px;
+            }
+
+            .search-field input,
+            .search-field select {
+                font-size: 18px;
+            }
+
+            .services-grid {
+                gap: 14px;
+            }
+
+            .service-title {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .appointment-section {
+                padding: 30px 0;
+                min-height: auto;
+            }
+
+            .appointment-heading {
+                margin-bottom: 30px;
+                font-size: 30px;
+            }
+
+            .side-art {
+                display: none;
+            }
+
+            .appointment-search {
+                min-height: auto;
+                padding: 24px;
+                flex-wrap: wrap;
+            }
+
+            .search-field {
+                flex: 1 1 calc(50% - 8px);
+                height: 66px;
+            }
+
+            .search-field input,
+            .search-field select {
+                font-size: 17px;
+            }
+
+            .search-field > i {
+                padding-left: 13px;
+                font-size: 23px;
+            }
+
+            .appointment-btn {
+                flex: 1 1 100%;
+                height: 62px;
+                font-size: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 14px;
+                margin-top: 24px;
+            }
+
+            .service-card {
+                min-height: 145px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .appointment-section {
+                padding: 25px 0;
+            }
+
+            .appointment-container {
+                padding: 0 15px;
+            }
+
+            .appointment-heading {
+                max-width: 350px;
+                margin: 0 auto 25px;
+                font-size: 27px;
+                line-height: 1.3;
+                letter-spacing: -.4px;
+            }
+
+            .appointment-search {
+                gap: 12px;
+                padding: 17px;
+                border-radius: 12px;
+            }
+
+            .search-field {
+                flex: 1 1 100%;
+                height: 58px;
+            }
+
+            .search-field input,
+            .search-field select {
+                font-size: 16px;
+            }
+
+            .search-field > i {
+                font-size: 22px;
+            }
+
+            .appointment-btn {
+                height: 57px;
+                font-size: 18px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .service-card {
+                min-height: 135px;
+                padding: 10px 4px;
+                border-radius: 10px;
+            }
+
+            .service-icon {
+                height: 55px;
+            }
+
+            .service-icon i {
+                font-size: 45px;
+            }
+
+            .service-title {
+                font-size: 15px;
+                white-space: normal;
+            }
+
+            .service-subtitle {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="appointment-section">
+
+    <!-- Left Decorative Illustration -->
+    <div class="side-art side-art-left" aria-hidden="true">
+        <div class="art-paper"></div>
+        <div class="waiting-area"></div>
+
+        <svg viewBox="0 0 300 280"
+             style="position:absolute;bottom:0;left:12px;width:275px;height:280px"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Sitting patient -->
+            <ellipse cx="77" cy="268" rx="43" ry="7" fill="#b9cadc"/>
+
+            <!-- Legs -->
+            <path d="M54 177 Q47 218 62 240 L78 265 L95 264 L81 232 L94 190"
+                  fill="#303638"/>
+            <path d="M80 229 L97 249 L113 265 L129 264 L111 238 L101 211"
+                  fill="#252d32"/>
+            <path d="M65 260 L83 260 L89 269 L54 269 Q49 264 65 260"
+                  fill="#182b39"/>
+            <path d="M109 260 L127 259 L136 269 L102 269 Q100 265 109 260"
+                  fill="#172b39"/>
+
+            <!-- Body -->
+            <path d="M52 113 Q72 102 91 117 L104 156
+                     Q111 172 98 193 L54 194
+                     Q42 170 43 144 Z"
+                  fill="#f8b34f"/>
+
+            <!-- Arm -->
+            <path d="M83 121 Q104 128 119 143
+                     L155 150 Q164 153 165 147
+                     Q160 138 151 140 L118 126
+                     L93 112 Z"
+                  fill="#f5b18b"/>
+
+            <!-- Neck -->
+            <path d="M65 88 L64 111 L81 119 L83 97 Z"
+                  fill="#e9aa87"/>
+
+            <!-- Head -->
+            <ellipse cx="69" cy="73" rx="20" ry="25" fill="#efb18e"/>
+            <path d="M49 73 Q44 45 65 45
+                     Q86 43 89 65 L85 81
+                     L78 61 L62 60 L53 76 Z"
+                  fill="#151a1c"/>
+            <path d="M50 70 Q46 88 59 95
+                     L56 80 L62 62 Z"
+                  fill="#171c20"/>
+
+            <!-- Face mask -->
+            <path d="M62 74 L82 73 L80 87 L65 88 Z"
+                  fill="#dcebf4"/>
+            <path d="M62 75 L57 73 M80 76 L86 73"
+                  stroke="#dcebf4" stroke-width="1.5"/>
+
+            <!-- Female companion -->
+            <ellipse cx="187" cy="266" rx="29" ry="6" fill="#b9cadc"/>
+
+            <!-- Legs -->
+            <path d="M170 188 L174 239 L165 265 L180 266
+                     L193 238 L198 190"
+                  fill="#f5d4b2"/>
+            <path d="M190 189 L199 239 L208 264 L222 264
+                     L211 232 L212 187"
+                  fill="#f7d7b7"/>
+
+            <!-- Dress -->
+            <path d="M168 110 Q186 103 204 114
+                     L215 165 L204 211
+                     Q188 220 168 211
+                     L158 163 Z"
+                  fill="#f8d7b5"/>
+
+            <!-- Arm -->
+            <path d="M172 122 Q158 134 149 145
+                     L136 148 Q129 151 134 157
+                     Q144 162 153 153
+                     L179 141"
+                  fill="#efb08c"/>
+
+            <!-- Hair -->
+            <path d="M166 88 Q157 58 182 56
+                     Q208 57 208 83
+                     L201 117 L192 100
+                     L189 74 L174 78 L165 106 Z"
+                  fill="#26272c"/>
+
+            <!-- Head -->
+            <ellipse cx="185" cy="83" rx="18" ry="23" fill="#efb28f"/>
+
+            <!-- Hair details -->
+            <path d="M168 79 Q173 51 195 66
+                     L204 89 L197 75 L184 70
+                     L174 81 Z"
+                  fill="#25262b"/>
+
+            <!-- Mask -->
+            <path d="M176 84 L195 83 L193 97 L180 98 Z"
+                  fill="#dbeaf4"/>
+            <path d="M176 85 L171 82 M194 85 L200 81"
+                  stroke="#dbeaf4" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <!-- Right Decorative Illustration -->
+    <div class="side-art side-art-right" aria-hidden="true">
+        <div class="doctor-desk"></div>
+        <div class="desk-cross">+</div>
+
+        <div class="doctor-figure">
+            <div class="doctor-hair"></div>
+            <div class="doctor-face"></div>
+            <div class="doctor-neck"></div>
+            <div class="doctor-shirt"></div>
+            <div class="doctor-coat"></div>
+            <div class="doctor-badge"></div>
+        </div>
+
+        <svg viewBox="0 0 70 50"
+             style="position:absolute;bottom:217px;left:105px;width:52px;height:40px"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4 H61 L56 35 H3 Z"
+                  fill="#f8fbff" stroke="#7ea9df" stroke-width="1.5"/>
+            <path d="M14 11 H55 M12 17 H53 M10 23 H52 M9 29 H50"
+                  stroke="#a7c6ec" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="appointment-container">
+
+        <!-- Heading -->
+        <h1 class="appointment-heading">
+            Schedule Your Appointment Online
+        </h1>
+
+        <!-- Search Form -->
+        <form class="appointment-search"
+              id="appointmentForm"
+              action="#"
+              method="get">
+
+            <div class="search-field">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input
+                    type="search"
+                    name="speciality"
+                    id="speciality"
+                    placeholder="Search for Doctor or Speciality"
+                    aria-label="Search for Doctor or Speciality"
+                    list="specialityOptions"
+                    required
+                >
+                <datalist id="specialityOptions">
+                    <option value="Cardiology">
+                    <option value="Neurology">
+                    <option value="Orthopaedics">
+                    <option value="Paediatrics">
+                    <option value="Dermatology">
+                    <option value="General Medicine">
+                    <option value="Gynaecology">
+                </datalist>
+            </div>
+
+            <div class="search-field location-field">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <select
+                    name="location"
+                    id="location"
+                    aria-label="Select Location"
+                    required
+                >
+                    <option value="" selected disabled>Select Location</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Gurugram">Gurugram</option>
+                    <option value="Faridabad">Faridabad</option>
+                </select>
+            </div>
+
+            <button type="submit" class="appointment-btn">
+                Book an Appointment
+            </button>
+
+        </form>
+
+        <!-- Service Cards -->
+        <div class="services-grid">
+
+            <a href="#international-patients" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-files" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">International Patients</h2>
+                <p class="service-subtitle">Visit International Website</p>
+            </a>
+
+            <a href="#immigration" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-globe2" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">Immigration</h2>
+                <p class="service-subtitle">Visa Medical Appointment</p>
+            </a>
+
+            <a href="#health-checkup" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-person-check" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">Health Checkup</h2>
+            </a>
+
+            <a href="#max-lab" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-droplet-half" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">MAX Lab</h2>
+            </a>
+
+            <a href="#max-at-home" class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-house-add" aria-hidden="true"></i>
+                </div>
+                <h2 class="service-title">MAX@Home</h2>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const speciality = document.getElementById('speciality').value.trim();
+        const location = document.getElementById('location').value;
+
+        if (!speciality || !location) {
+            return;
+        }
+
+        // Connect this form to your appointment booking page/API.
+        const params = new URLSearchParams({
+            speciality: speciality,
+            location: location
+        });
+
+        window.location.href = 'appointment.html?' + params.toString();
+    });
+</script>
+
+</body>
+</html>
