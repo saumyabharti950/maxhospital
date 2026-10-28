@@ -2157,4 +2157,57 @@ footer {
             text-decoration: underline;
         }
 
+/* Homepage sections inspired by the reference site's patient-first flow. */
+.hero { height: 560px; min-height: 500px; background-position: center 42%; }
+.hero-inner { justify-content: space-between; gap: 30px; padding-bottom: 35px; }
+.hero-copy { padding-bottom: 0; max-width: 610px; }
+.hero-copy h1 em { color: #72d1cb; font-style: normal; }
+.hero-actions { display:flex; align-items:center; gap:22px; margin-top:25px; }
+.hero-secondary { color:#fff; font-size:12px; font-weight:700; text-decoration:none; }
+.hero-secondary:hover { color:#8be0d9; }
+.hero-card { align-self:center; width:270px; padding:24px; border-radius:15px; background:#fff; color:#173b4a; box-shadow:0 15px 45px #082e3c40; display:flex; flex-direction:column; gap:10px; }
+.hero-card>i { color:#e8750b; font-size:29px; }
+.hero-card strong { font:700 18px var(--display); }
+.hero-card span { color:#6b8088; font-size:12px; }
+.hero-card a { color:#117d89; font-weight:700; font-size:12px; text-decoration:none; margin-top:5px; }
+.patient-links { position:relative; z-index:3; background:#fff; box-shadow:0 9px 30px #173b4a0c; }
+.patient-links-row { display:grid; grid-template-columns:repeat(5,1fr); padding:15px 0; }
+.patient-links a { display:flex; justify-content:center; align-items:center; gap:12px; padding:9px; color:#345461; text-decoration:none; border-right:1px solid #e4edef; font-size:11px; line-height:1.4; }
+.patient-links a:last-child { border:0; }
+.patient-links a>i { color:#138c90; font-size:22px; }
+.patient-links a:hover { color:#e6750c; }
+.network-section { background:#f5f8f8; }
+.hospital-feature { display:flex; align-items:center; gap:22px; padding:27px 30px; background:#fff; border:1px solid #e5edef; border-radius:14px; box-shadow:0 12px 30px #173b4a0a; }
+.hospital-feature-icon { flex:none; width:64px; height:64px; display:grid; place-items:center; border-radius:12px; color:#12878d; background:#e7f5f3; font-size:28px; }
+.hospital-feature>div:nth-child(2) { flex:1; }
+.hospital-label { color:#12878d; font-size:9px; letter-spacing:1.3px; font-weight:700; }
+.hospital-feature h3 { margin:5px 0 2px; color:#193f4d; font:700 22px var(--display); }
+.hospital-feature p { margin:0; color:#6d828a; font-size:12px; }
+.updates-section { background:#fff; }
+.health-note { height:100%; padding:24px; border:1px solid #e4edef; border-radius:13px; background:#fff; transition:.2s; }
+.health-note:hover { transform:translateY(-3px); box-shadow:0 12px 28px #173b4a12; }
+.note-icon { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; font-size:19px; margin-bottom:21px; }
+.note-icon.aqua { color:#138c90; background:#e5f5f1; }
+.note-icon.pink { color:#df7280; background:#fff0f0; }
+.note-icon.blue { color:#5b82bd; background:#eaf1fb; }
+.health-note>small { color:#168c8d; font-size:9px; letter-spacing:1.2px; font-weight:700; }
+.health-note h3 { margin:8px 0 10px; font:700 18px/1.35 var(--display); color:#183e4d; }
+.health-note p { color:#697f88; font-size:12px; line-height:1.65; }
+.health-note a { display:inline-flex; gap:8px; color:#137c88; font-size:11px; font-weight:700; text-decoration:none; margin-top:7px; }
+.health-disclaimer { margin:20px 0 0; color:#7b8c91; font-size:10px; }
+@media(max-width:767px) {
+  .hero { height:550px; min-height:0; }
+  .hero-inner { align-items:flex-start; padding-top:70px; padding-bottom:90px; }
+  .hero-copy h1 { font-size:42px; }
+  .hero-card { display:none; }
+  .hero-actions { align-items:flex-start; flex-direction:column; gap:14px; }
+  .patient-links-row { grid-template-columns:repeat(3,1fr); padding:8px 0; }
+  .patient-links a { justify-content:flex-start; border:0; padding:10px 5px; }
+  .patient-links a:nth-child(n+4) { border-top:1px solid #e4edef; }
+  .patient-links a>i { font-size:19px; }
+  .hospital-feature { align-items:flex-start; flex-wrap:wrap; padding:20px; gap:15px; }
+  .hospital-feature>div:nth-child(2) { min-width:calc(100% - 80px); }
+  .hospital-feature h3 { font-size:18px; }
+}
+
 
